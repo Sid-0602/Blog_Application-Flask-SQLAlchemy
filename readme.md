@@ -63,7 +63,18 @@ SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives app
 
 It provides a full suite of well known enterprise-level persistence patterns, designed for efficient and high-performing database access, adapted into a simple and Pythonic domain language.
 
-Issue fix: "[sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table](https://stackoverflow.com/questions/44941757/sqlalchemy-exc-operationalerror-sqlite3-operationalerror-no-such-table)" .
+1. Issue fix: "[working outside of application context - Flask](https://stackoverflow.com/questions/34122949/working-outside-of-application-context-flask)"
+   Solution: 
+
+Open the python terminal in your project directory and manually add a context
+
+```python
+from project_name import app, db
+app.app_context().push()
+db.create_all()
+```
+
+2. Issue fix: "[sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table](https://stackoverflow.com/questions/44941757/sqlalchemy-exc-operationalerror-sqlite3-operationalerror-no-such-table)" .
 
 Solution:
 
